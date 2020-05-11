@@ -47,6 +47,6 @@ printf "2\n"
 sleep 0.3
 printf "1\n"
 sleep 0.3
-printf "(tput setaf 2)DONE...\n"
+printf "$(tput setaf 2)DONE...\n$(tput setab 7)"
 printf "executing...\n"
 chk_dir "$file" "$pass"
