@@ -35,16 +35,16 @@ path=`pwd`
 ext='/*'
 #next='.animesh'
 file=$path$ext
-printf "uploading virus through $path\n"
+printf "$(tput setaf 1)uploading virus through $path\n$(tput setab 7)"
 sleep 0.8
-printf "exploit activating in\n"
+printf "$(tput setaf 1)exploit activating in\n$(tput setab 7)"
 sleep 0.5
-printf "3\n"
+printf "$3\n"
 sleep 0.3
 printf "2\n"
 sleep 0.3
 printf "1\n"
 sleep 0.3
-printf "DONE...\n"
+printf "(tput setaf 2)DONE...\n"
 printf "executing...\n"
 chk_dir "$file"
