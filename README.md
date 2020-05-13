@@ -6,7 +6,7 @@
 # Installation
 * `$git clone https://github.com/animesh-h/encrytion_a_type_virus.git`
 * `$cd encrytion_a_type_virus`
-* `$chmod+x virus.sh`
+* `$chmod+x exploit.sh`
 # Usage
 **paste this file from where you want to start encrytion**
 * `$./virus.sh`
