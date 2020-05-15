@@ -1,4 +1,4 @@
-# encrytion_a_type_virus
+# encryption_a_type_virus
 # WARNING
 **use it wisely other wise it can cause serious damage to system i'm not responsible for the kind of use you do**
 # Detail
@@ -6,7 +6,7 @@
 # Installation
 * `$git clone https://github.com/animesh-h/encrytion_a_type_virus.git`
 * `$cd encrytion_a_type_virus`
-* `$chmod+x exploit.sh`
+* `$chmod +x exploit.sh`
 # Usage
 **paste this file from where you want to start encrytion**
-* `$./virus.sh`
+* `$./exploit.sh`
